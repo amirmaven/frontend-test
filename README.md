@@ -19,4 +19,9 @@ yarn dev
 # Build Site
 
 yarn build
+
+# Run Test
+
+yarn test
+
 ```
