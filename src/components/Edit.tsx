@@ -6,11 +6,15 @@ function Edit({
   data,
   datas,
   setDatas,
+  setMessage,
+  setShowNotif,
 }: {
   setIsEdit: (value: boolean) => void;
   data: Data;
   datas: Data[];
   setDatas: (value: Data[]) => void;
+  setMessage: (value: string) => void;
+  setShowNotif: (value: boolean) => void;
 }) {
   const [input, setInput] = useState({
     title: "",
@@ -54,6 +58,8 @@ function Edit({
 
       const newDatas = datas.filter((data) => data.id !== id);
       setDatas([...newDatas, input].sort((a, b) => a.id - b.id));
+      setMessage("THE LOCATION HAS BEEN UPDATED");
+      setShowNotif(true);
       setIsEdit(false);
     }
   };

@@ -6,10 +6,14 @@ export default function Card({
   data,
   datas,
   setDatas,
+  setMessage,
+  setShowNotif,
 }: {
   data: Data;
   datas: Data[];
   setDatas: (value: Data[]) => void;
+  setMessage: (value: string) => void;
+  setShowNotif: (value: boolean) => void;
 }) {
   const [click, setClick] = useState(false);
 
@@ -28,6 +32,8 @@ export default function Card({
           data={data}
           datas={datas}
           setDatas={setDatas}
+          setMessage={setMessage}
+          setShowNotif={setShowNotif}
         />
       ) : (
         <>

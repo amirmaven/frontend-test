@@ -4,10 +4,14 @@ function Add({
   setAddInput,
   datas,
   setDatas,
+  setMessage,
+  setShowNotif,
 }: {
   setAddInput: (value: boolean) => void;
   datas: Data[];
   setDatas: (value: Data[]) => void;
+  setMessage: (value: string) => void;
+  setShowNotif: (value: boolean) => void;
 }) {
   const [input, setInput] = useState({
     title: "",
@@ -40,6 +44,8 @@ function Add({
 
       const newDatas = datas.filter((data) => data.id !== input.id);
       setDatas([...newDatas, input].sort((a, b) => a.id - b.id));
+      setMessage("THE LOCATION HAS BEEN UPDATED");
+      setShowNotif(true);
       setAddInput(false);
     }
   };

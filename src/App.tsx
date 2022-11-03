@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddNewLocation from "./components/AddNewLocation";
 import Card from "./components/Card";
+import Notification from "./components/Notification";
 import { Data } from "./types";
 
 function App() {
@@ -43,16 +44,35 @@ function App() {
     },
   ]);
 
+  const [message, setMessage] = useState("");
+  const [showNotif, setShowNotif] = useState(false);
+
   return (
-    <div className="flex flex-col justify-start items-center pt-16 bg-slate-100 min-h-screen">
+    <div className="flex flex-col justify-start items-center pt-32 bg-slate-100 min-h-screen">
+      {showNotif && (
+        <Notification message={message} setShowNotif={setShowNotif} />
+      )}
+
       <h1 className="text-6xl text-Brandblue">Offices</h1>
 
-      <AddNewLocation datas={datas} setDatas={setDatas} />
+      <AddNewLocation
+        datas={datas}
+        setDatas={setDatas}
+        setMessage={setMessage}
+        setShowNotif={setShowNotif}
+      />
 
       <div className="mt-8 mb-36 flex flex-col">
         {/* card */}
         {datas.map((data: Data) => (
-          <Card key={data.id} data={data} datas={datas} setDatas={setDatas} />
+          <Card
+            key={data.id}
+            data={data}
+            datas={datas}
+            setDatas={setDatas}
+            setMessage={setMessage}
+            setShowNotif={setShowNotif}
+          />
         ))}
       </div>
     </div>
