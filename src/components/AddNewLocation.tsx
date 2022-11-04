@@ -7,7 +7,7 @@ export default function AddNewLocation() {
   return (
     <>
       {addInput ? (
-        <Form closeForm={setAddInput} />
+        <Form closeForm={setAddInput} title="New Location" />
       ) : (
         <button
           className="w-[317px] h-[56px] bg-Brandblue flex justify-between items-center text-white py-[16px] px-[24px] rounded-lg mt-16 cursor-pointer hover:bg-Brandblue/90 shadow-xl"

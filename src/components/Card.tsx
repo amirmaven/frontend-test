@@ -17,7 +17,12 @@ export default function Card({ data }: { data: Data }) {
   return (
     <div className="mb-8">
       {isEdit ? (
-        <Form closeForm={setIsEdit} data={data} isEdit={true} />
+        <Form
+          closeForm={setIsEdit}
+          data={data}
+          isEdit={true}
+          title="Edit Location"
+        />
       ) : (
         <>
           <button onClick={() => setClick((prev) => !prev)}>

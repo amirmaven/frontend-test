@@ -6,10 +6,12 @@ function Form({
   closeForm,
   isEdit = false,
   data = null,
+  title,
 }: {
   closeForm: (value: boolean) => void;
   isEdit: boolean;
   data: Data;
+  title: string;
 }) {
   const { datas, setDatas, setMessage, setShowNotif } =
     useContext(OfficeContext);
@@ -86,7 +88,7 @@ function Form({
       } p-[24px] rounded-lg`}
     >
       <div className="flex justify-between">
-        <span className="font-bold">New Location</span>
+        <span className="font-bold">{title}</span>
         <button onClick={() => closeForm(false)}>
           <svg
             width="14"
