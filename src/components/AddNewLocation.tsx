@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Add from "./Add";
+import Form from "./Form";
 
 export default function AddNewLocation() {
   const [addInput, setAddInput] = useState(false);
@@ -7,7 +7,7 @@ export default function AddNewLocation() {
   return (
     <>
       {addInput ? (
-        <Add setAddInput={setAddInput} />
+        <Form closeForm={setAddInput} />
       ) : (
         <button
           className="w-[317px] h-[56px] bg-Brandblue flex justify-between items-center text-white py-[16px] px-[24px] rounded-lg mt-16 cursor-pointer hover:bg-Brandblue/90 shadow-xl"

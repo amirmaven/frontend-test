@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import AddNewLocation from "./components/AddNewLocation";
 import Card from "./components/Card";
 import Notification from "./components/Notification";
 import { Data } from "./types";
-import { OfficeContext, OfficeContextProvider } from "./context/office";
+import { OfficeContext } from "./context/office";
 
 function App() {
   const { showNotif, datas } = useContext(OfficeContext);

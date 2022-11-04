@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { OfficeContext } from "../context/office";
 import { Data } from "../types";
-import Edit from "./Edit";
+import Form from "./Form";
 
 export default function Card({ data }: { data: Data }) {
   const { datas, setDatas } = useContext(OfficeContext);
@@ -17,7 +17,7 @@ export default function Card({ data }: { data: Data }) {
   return (
     <div className="mb-8">
       {isEdit ? (
-        <Edit setIsEdit={setIsEdit} data={data} />
+        <Form closeForm={setIsEdit} data={data} isEdit={true} />
       ) : (
         <>
           <button onClick={() => setClick((prev) => !prev)}>
