@@ -1,18 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { OfficeContext } from "../context/office";
 
-function Add({
-  setAddInput,
-  datas,
-  setDatas,
-  setMessage,
-  setShowNotif,
-}: {
-  setAddInput: (value: boolean) => void;
-  datas: Data[];
-  setDatas: (value: Data[]) => void;
-  setMessage: (value: string) => void;
-  setShowNotif: (value: boolean) => void;
-}) {
+function Add({ setAddInput }: { setAddInput: (value: boolean) => void }) {
+  const { datas, setDatas, setMessage, setShowNotif } =
+    useContext(OfficeContext);
+
   const [input, setInput] = useState({
     title: "",
     address: "",

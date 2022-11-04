@@ -1,21 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { OfficeContext } from "../context/office";
 import { Data } from "../types";
 
 function Edit({
   setIsEdit,
   data,
-  datas,
-  setDatas,
-  setMessage,
-  setShowNotif,
 }: {
   setIsEdit: (value: boolean) => void;
   data: Data;
-  datas: Data[];
-  setDatas: (value: Data[]) => void;
-  setMessage: (value: string) => void;
-  setShowNotif: (value: boolean) => void;
 }) {
+  const { datas, setDatas, setMessage, setShowNotif } =
+    useContext(OfficeContext);
+
   const [input, setInput] = useState({
     title: "",
     address: "",
@@ -24,7 +20,6 @@ function Edit({
     email: "",
     phone: "",
   });
-
   const [validated, setValidated] = useState(false);
 
   useEffect(() => {

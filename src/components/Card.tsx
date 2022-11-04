@@ -1,22 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { OfficeContext } from "../context/office";
 import { Data } from "../types";
 import Edit from "./Edit";
 
-export default function Card({
-  data,
-  datas,
-  setDatas,
-  setMessage,
-  setShowNotif,
-}: {
-  data: Data;
-  datas: Data[];
-  setDatas: (value: Data[]) => void;
-  setMessage: (value: string) => void;
-  setShowNotif: (value: boolean) => void;
-}) {
-  const [click, setClick] = useState(false);
+export default function Card({ data }: { data: Data }) {
+  const { datas, setDatas } = useContext(OfficeContext);
 
+  const [click, setClick] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 
   const handleDelete = (id: number) => {
@@ -27,14 +17,7 @@ export default function Card({
   return (
     <div className="mb-8">
       {isEdit ? (
-        <Edit
-          setIsEdit={setIsEdit}
-          data={data}
-          datas={datas}
-          setDatas={setDatas}
-          setMessage={setMessage}
-          setShowNotif={setShowNotif}
-        />
+        <Edit setIsEdit={setIsEdit} data={data} />
       ) : (
         <>
           <button onClick={() => setClick((prev) => !prev)}>

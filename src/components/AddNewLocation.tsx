@@ -1,29 +1,13 @@
 import { useState } from "react";
 import Add from "./Add";
 
-export default function AddNewLocation({
-  datas,
-  setDatas,
-  setMessage,
-  setShowNotif,
-}: {
-  datas: Data[];
-  setDatas: (value: Data[]) => void;
-  setMessage: (value: string) => void;
-  setShowNotif: (value: boolean) => void;
-}) {
+export default function AddNewLocation() {
   const [addInput, setAddInput] = useState(false);
 
   return (
     <>
       {addInput ? (
-        <Add
-          setAddInput={setAddInput}
-          datas={datas}
-          setDatas={setDatas}
-          setMessage={setMessage}
-          setShowNotif={setShowNotif}
-        />
+        <Add setAddInput={setAddInput} />
       ) : (
         <button
           className="w-[317px] h-[56px] bg-Brandblue flex justify-between items-center text-white py-[16px] px-[24px] rounded-lg mt-16 cursor-pointer hover:bg-Brandblue/90 shadow-xl"

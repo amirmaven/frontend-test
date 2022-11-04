@@ -1,10 +1,9 @@
-export default function Notification({
-  message,
-  setShowNotif,
-}: {
-  message: string;
-  setShowNotif: (value: boolean) => void;
-}) {
+import { useContext } from "react";
+import { OfficeContext } from "../context/office";
+
+export default function Notification() {
+  const { message, setShowNotif } = useContext(OfficeContext);
+
   return (
     <div className="fixed bg-white w-full h-[80px] top-0 z-10 shadow">
       <div className=" absolute w-full h-full">
@@ -21,9 +20,9 @@ export default function Notification({
             <path
               d="M1 7L5 11L15 1"
               stroke="#33A6BA"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           <span className="text-xs text-Branddark">{message}</span>
